@@ -1,0 +1,37 @@
+<% include layout.ejs %>
+<h2 class="text-primary">Student List</h2>
+<form method="GET" class="d-flex mb-3">
+  <input type="text" name="search" class="form-control me-2" placeholder="Search by name/department">
+  <select name="sort" class="form-select me-2">
+    <option value="">Sort By</option>
+    <option value="name">Name</option>
+    <option value="gpa">GPA</option>
+  </select>
+  <button class="btn btn-success">Search</button>
+</form>
+<a href="/students/add" class="btn btn-primary mb-3">Add Student</a>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Roll No</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>GPA</th>
+    <th>Actions</th>
+  </tr>
+  <% students.forEach(student => { %>
+  <tr>
+    <td><a href="/students/<%= student._id %>"><%= student.name %></a></td>
+    <td><%= student.rollNumber %></td>
+    <td><%= student.email %></td>
+    <td><%= student.department %></td>
+    <td><%= student.gpa %></td>
+    <td>
+      <a href="/students/edit/<%= student._id %>" class="btn btn-warning btn-sm">Edit</a>
+      <form method="POST" action="/students/delete/<%= student._id %>?_method=DELETE" style="display:inline;">
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</table>

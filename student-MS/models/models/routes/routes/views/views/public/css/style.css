@@ -1,0 +1,17 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+h2 {
+  color: #fd850d;
+}
+.navbar {
+  border-radius: 0 0 15px 15px;
+}
+.table {
+  background: rgb(237, 155, 155);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.btn {
+  border-radius: 20px;
+}
